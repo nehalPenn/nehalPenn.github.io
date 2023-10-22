@@ -8,24 +8,25 @@ redirect_from:
   - /about.html
 ---
 
-👨🏻‍💻 I'm a graduate student at the University Of Pennsylvania.
+👨🏾‍💻 I'm a graduate student at the University Of Pennsylvania.
 
 📽️ My interests are in building elegant Software Solutions and Self-Supervised Learning!
 
-📚 I'm currently working towards my Master's Degree in the field of Computer Information and Technology.
+📚 I'm currently working towards my Master's Degree in the field of Computer Information and Technology in the School of Engineering.
 
-# Selected Experience
+# 🕵🏽‍♂️ Here's what I have been up to! 
 
-## 👨🏻‍🔬 Professional Experience
-Additionally, I have professional experience working as an **Applied Machine Learning Student Researcher** at the Fraunhofer Heinrich Hertz Institute. \
-There I work on dynamic traffic flow forecasting using Graph Neural Networks.
+## 📜 Experience
+**Netflix** 
+
+During the summer of 2023, I was with Netflix as a Back-End Engineering Extern (Pathways).
 
 ## 🤖 Projects
 I have experience contributing to [Arena Bench](https://github.com/Arena-Rosnav) a large open-source project for robotic obstacle avoidance using Deep Reinforcement Learning.
 
 Moreover, I have published a [respective paper](https://sudo-boris.github.io/publication/2022-Arena-Bench) at the IROS conference and in the Robotics and Automation Letters (RA-L) journal.
 
-## 📜 Experience
+## 🧑🏾‍🔬 More about me!
 I have experience with independent research. I have implemented the Reward Constrained Policy Optimization paper into stable-baselines3 PPO and reproduced the original results by running and tracking experiments.
 
 To accompany this work, I have submitted a blog post to the **ICLR** Blogposts Track communicating the paper's theory and my results.
