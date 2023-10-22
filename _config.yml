@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Nehal's Webstie"
+title                    : "Nehal's Website"
 title_separator          : "-"
 name                     : &name "Nehal Ramineni"
 description              : &description "personal description"
