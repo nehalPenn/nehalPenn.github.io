@@ -17,9 +17,26 @@ redirect_from:
 # 🕵🏽‍♂️ Here's what I have been up to! 
 
 ## 📜 Experience
-**Netflix** 
+### Netflix
+**Back-End Engineering Extern (May 2023 - September 2023)** 
+• Implemented efficient user authentication with JSON Web Tokens(JWT), OAuth2, and AWS infrastructure using
+Spring Security, optimizing server performance and deployment.
+• Pioneered a CI/CD pipeline with CircleCI, expediting releases, reducing glitches, and elevating software quality.
+• Efficiently managed 3 dynamic database projects and communication through JIRA, ensuring seamless
+collaboration and task tracking
 
-During the summer of 2023, I was with Netflix as a Back-End Engineering Extern (Pathways).
+### University of Pennsylvania
+**Graduate TA (August 2023 - Current)**
+• Facilitate 4 separate weekly discussions as a continuation of lecture content of Software Development foundational
+principles to build upon covered material and address questions.
+• Hold weekly office hours to answer student questions covering material and created over 5+ unique individualized
+study guides covering lecture content
+
+### ROEN Surgical
+**Engineering Consultant (May 2022 - November 2022)** 
+• Analyzed 5 novel target treatment applications for endoscopic urological robots, created and presented advanced
+models per treatment to C-level executives.
+• Designed a comprehensive market entry road-map based on current academic journals and competitive landscape
 
 ## 🤖 Projects
 I have experience contributing to [Arena Bench](https://github.com/Arena-Rosnav) a large open-source project for robotic obstacle avoidance using Deep Reinforcement Learning.
