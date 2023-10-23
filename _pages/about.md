@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "👋🏼 Greetings Friend"
+title: "👋🏼 Greetings Friends"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,6 +8,7 @@ redirect_from:
   - /about.html
 ---
 
+![Illustration of robot](/images/hello!.png){: .align-right width="300px"}
 👨🏾‍💻 I'm a graduate student at the University Of Pennsylvania.
 
 📽️ My interests are in building elegant Software Solutions and Self-Supervised Learning!
@@ -19,14 +20,16 @@ redirect_from:
 ## 📜 Experience
 ### Netflix
 **Back-End Engineering Extern (May 2023 - September 2023)** 
+
 • Implemented efficient user authentication with JSON Web Tokens(JWT), OAuth2, and AWS infrastructure using
 Spring Security, optimizing server performance and deployment.
 • Pioneered a CI/CD pipeline with CircleCI, expediting releases, reducing glitches, and elevating software quality.
 • Efficiently managed 3 dynamic database projects and communication through JIRA, ensuring seamless
 collaboration and task tracking
 
-### University of Pennsylvania
+### University of Pennsylvania, Department of Engineering
 **Graduate TA (August 2023 - Current)**
+
 • Facilitate 4 separate weekly discussions as a continuation of lecture content of Software Development foundational
 principles to build upon covered material and address questions.
 • Hold weekly office hours to answer student questions covering material and created over 5+ unique individualized
@@ -34,6 +37,7 @@ study guides covering lecture content
 
 ### ROEN Surgical
 **Engineering Consultant (May 2022 - November 2022)** 
+
 • Analyzed 5 novel target treatment applications for endoscopic urological robots, created and presented advanced
 models per treatment to C-level executives.
 • Designed a comprehensive market entry road-map based on current academic journals and competitive landscape
