@@ -1,0 +1,615 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+:root {
+  /* Dark theme - lighter blacks and brighter browns */
+  --bg-color: #1a1a1a; /* Lighter black instead of #000000 */
+  --text-color: #E6A272; /* Lighter chocolate */
+  --accent-color: #D4915E; /* Lighter saddle brown */
+  --hover-color: #E8B088; /* Lighter sienna */
+  --terminal-bg: #2a2a2a; /* Lighter terminal background */
+  --scanline-opacity: 0.15;
+  --noise-opacity: 0.05;
+  --transition: all 0.3s ease;
+}
+
+[data-theme="light"] {
+  /* Light theme */
+  --bg-color: #e1ded6; /* Classic beige */
+  --text-color: #8B4513; /* Saddle Brown */
+  --accent-color: #D2691E; /* Chocolate */
+  --hover-color: #CD853F; /* Peru */
+  --terminal-bg: #d4cfc7;
+  --scanline-opacity: 0.03; /* Reduced from 0.08 */
+  --noise-opacity: 0.02; /* Add noise opacity control */
+}
+
+@font-face {
+  font-family: 'VT323';
+  src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'VT323', monospace;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: var(--transition);
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper Styles */
+.wrapper {
+  max-width: 1000px;
+  width: 90%;
+  margin: 1.5rem auto;
+  padding: 2.5rem;
+  position: relative;
+  border-radius: 15px;
+  background: #111111; /* Lighter than pure black */
+  box-shadow: 
+    inset 0 0 30px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 0 12px #3a3a3a, /* Lighter borders */
+    0 0 0 13px #2a2a2a,
+    0 0 0 14px #1a1a1a,
+    0 0 0 25px #111111,
+    0 20px 40px rgba(0, 0, 0, 0.8);
+  pointer-events: auto;
+}
+
+/* Add monitor stand */
+.wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 30px;
+  background: #2a2a2a; /* Lighter stand color */
+  border-radius: 0 0 15px 15px;
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Add screen curvature effect */
+.content {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 1.5rem;
+  background: var(--bg-color);
+  height: 75vh;
+  overflow-y: auto;
+}
+
+/* Restore content overlay */
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Remove the screen overlay effect temporarily */
+.content::before {
+  display: none;
+}
+
+/* Remove z-index from containers */
+.body-paragraph {
+  position: static;
+}
+
+/* Remove global scanline */
+.scanline {
+  display: none;
+}
+
+/* Add scanline effect to header section */
+.header-section {
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Remove this entire block */
+.header-section::after {
+  display: none;
+}
+
+/* Title Styles */
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(120deg, 
+    #8B4513, /* Saddle Brown */
+    #D2691E  /* Chocolate */
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 1s ease-in;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+/* Paragraph Styles */
+.body-paragraph {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadeSlideIn 0.8s ease-out forwards;
+}
+
+.body-paragraph:nth-child(1),
+.body-paragraph:nth-child(2),
+.body-paragraph:nth-child(3),
+.body-paragraph:nth-child(4) {
+  animation: fadeSlideIn 0.8s ease-out forwards;
+}
+
+/* General link styles */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+}
+
+/* Text link style */
+.text-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-color);
+  padding-bottom: 1px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.text-link:hover {
+  color: var(--hover-color);
+  border-bottom: 1px solid var(--hover-color);
+  padding-bottom: 2px;
+}
+
+/* Keep social button styles */
+.key-button:hover {
+  transform: translateY(4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  top: 2px;
+  text-decoration: none;
+}
+
+/* Specific styles for the upenn-hover class */
+.upenn-hover {
+  padding: 0 2px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.upenn-hover:hover {
+  background-color: var(--hover-color);
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+/* Replace the social links styles with keyboard styles */
+.keyboard-social {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.key-button {
+  background: var(--terminal-bg);
+  color: var(--text-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+  border: 1px solid var(--text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  top: 0;
+  margin-bottom: 10px;
+}
+
+.key-button::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Position below the button */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--text-color);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.key-button:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hide the key caps */
+.key-cap {
+  display: none;
+}
+
+/* Retro Effects */
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANyIiwAAAACHRSTlMAAAAAAAAAACPjYGYAAAAVSURBVDjLY2AYBaNgFIyCUTAKCAEABVgAAXBlBqQAAAAASUVORK5CYII=') repeat;
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: 998;
+}
+
+/* Terminal Header */
+.terminal-header {
+  background: var(--terminal-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  transition: var(--transition);
+}
+
+.terminal-button:nth-child(1) {
+  background: #ff5f56; /* Close button (red) */
+}
+
+.terminal-button:nth-child(2) {
+  background: #ffbd2e; /* Minimize button (yellow) */
+}
+
+.terminal-button:nth-child(3) {
+  background: #27c93f; /* Maximize button (green) */
+}
+
+/* Remove other terminal button styles */
+.terminal-button:nth-child(4),
+.terminal-button:nth-child(5) {
+  display: none;
+}
+
+.terminal-button:hover {
+  filter: brightness(0.8);
+}
+
+.terminal-title {
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-left: 2rem;
+  font-style: italic;
+}
+
+.version-text {
+  font-size: 0.8em;
+  opacity: 0.6;
+  font-style: italic;
+  margin-left: 0.5rem;
+}
+
+/* Hide version text on mobile */
+@media (max-width: 768px) {
+  .version-text {
+    display: none;
+  }
+}
+
+.theme-toggle {
+  margin-left: auto;
+  position: relative;
+}
+
+#theme-switch {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 4px;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+#theme-switch:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #E6A272; /* Match text-color */
+  text-shadow: 0.05em 0 0 #D4915E,
+               -0.025em -0.05em 0 #E8B088;
+  animation: glitch 3s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #D4915E;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #E8B088;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim2 2.5s infinite linear alternate-reverse;
+}
+
+/* Typewriter Effect */
+.typewriter strong {
+  overflow: hidden;
+  border-right: 0.15em solid var(--text-color);
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Neon Buttons */
+.neon-button {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  border-radius: 5px;
+}
+
+.neon-button:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 5px var(--text-color),
+              0 0 25px var(--text-color),
+              0 0 50px var(--text-color),
+              0 0 200px var(--text-color);
+}
+
+/* Animations */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(42px, 9999px, 44px, 0); }
+  100% { clip: rect(32px, 9999px, 162px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(12px, 9999px, 59px, 0); }
+  100% { clip: rect(78px, 9999px, 142px, 0); }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--text-color); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 98%;
+    margin: 0.5rem;
+    padding: 1.5rem;
+  }
+  
+  .content {
+    padding: 1rem;
+    height: 75vh;
+  }
+  
+  .wrapper::after {
+    width: 80px;
+    bottom: -30px;
+    height: 20px;
+  }
+  
+  .glitch {
+    font-size: 2rem;
+  }
+  
+  .typewriter strong {
+    font-size: 1rem;
+  }
+}
+
+@keyframes theme-fade {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Remove old CRT animations */
+@keyframes crt-off {
+  0% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+@keyframes crt-on {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Add power LED */
+.wrapper::before {
+  content: '';
+  position: absolute;
+  bottom: -35px;
+  right: 15px;
+  width: 6px;
+  height: 6px;
+  background: var(--text-color);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--text-color);
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Make scrollbar match the retro theme */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--terminal-bg);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--text-color);
+  border-radius: 4px;
+}
+
+/* Remove theme toggle text and animations */
+.theme-toggle::before {
+  display: none;
+}
+
+.theme-toggle::after {
+  display: none;
+}
+
+/* Remove related animations and media queries */
+@keyframes float {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(-5px); }
+}
+
+/* Remove visibility conditions */
+[data-theme="dark"] .theme-toggle::before,
+[data-theme="dark"] .theme-toggle::after {
+  display: none;
+}
+
+/* Remove mobile hide */
+@media (max-width: 768px) {
+  .theme-toggle::before,
+  .theme-toggle::after {
+    display: none;
+  }
+}
+
+.retro-comment {
+  font-size: 0.9em;
+  opacity: 0.7;
+  color: var(--accent-color);
+  font-style: italic;
+  display: block;
+  margin-top: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Add loading animation styles */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
