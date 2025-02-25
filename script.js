@@ -36,9 +36,58 @@ document.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Smooth loading effect for paragraphs
+// Typewriter effect for paragraphs - moderate speed
 document.querySelectorAll('.body-paragraph').forEach((paragraph, index) => {
-  paragraph.style.animationDelay = `${(index + 1) * 150}ms`;
+  // Store the original HTML including links
+  const originalHTML = paragraph.innerHTML;
+  
+  // Get all links from the paragraph
+  const links = paragraph.getElementsByTagName('a');
+  const linksHTML = Array.from(links).map(link => link.outerHTML);
+  
+  // Replace links with placeholders
+  let textContent = originalHTML;
+  Array.from(links).forEach(link => {
+    textContent = textContent.replace(link.outerHTML, '|||LINK|||');
+  });
+  
+  // Clear paragraph content
+  paragraph.innerHTML = '';
+  
+  // Split text into parts (text between links)
+  const textParts = textContent.split('|||LINK|||');
+  let linkIndex = 0;
+  
+  // Delay start based on paragraph index - reduced from 1000 to 600
+  setTimeout(() => {
+    let partIndex = 0;
+    
+    function typePart() {
+      if (partIndex < textParts.length) {
+        // Type out the text part
+        let charIndex = 0;
+        const part = textParts[partIndex];
+        
+        const typeInterval = setInterval(() => {
+          if (charIndex < part.length) {
+            paragraph.innerHTML += part.charAt(charIndex);
+            charIndex++;
+          } else {
+            clearInterval(typeInterval);
+            // Insert link if there is one
+            if (linkIndex < linksHTML.length) {
+              paragraph.innerHTML += linksHTML[linkIndex];
+              linkIndex++;
+            }
+            partIndex++;
+            typePart(); // Start typing next part
+          }
+        }, 10); // Changed from 20 to 10 - moderately faster typing
+      }
+    }
+    
+    typePart();
+  }, index * 600); // Changed from 1000 to 600 - moderate delay between paragraphs
 });
 
 // Add this to your script.js
