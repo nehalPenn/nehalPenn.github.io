@@ -654,8 +654,11 @@ a {
   }
   
   .terminal-title {
-    font-size: 0.9rem;
-    margin-left: 0.5rem; /* Reduce margin */
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .title {
