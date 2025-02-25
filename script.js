@@ -101,3 +101,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Add this at the beginning of your script.js
+document.addEventListener('DOMContentLoaded', function() {
+  const powerButton = document.getElementById('power-button');
+  const wrapper = document.querySelector('.wrapper');
+  const content = document.querySelector('.content');
+  let isPowered = false;
+
+  // Initially hide content
+  content.style.visibility = 'hidden';
+  content.style.opacity = '0';
+  content.style.transition = 'visibility 0s, opacity 1s ease-in-out';
+
+  powerButton.addEventListener('click', function() {
+    isPowered = !isPowered;
+    
+    if (isPowered) {
+      // Power on
+      powerButton.classList.add('powered-on');
+      wrapper.classList.remove('screen-off');
+      wrapper.classList.add('power-on-animation');
+      
+      // Play power on sound
+      const powerOnSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU');
+      powerOnSound.volume = 0.2;
+      powerOnSound.play().catch(() => {});
+      
+      // Show content with delay
+      setTimeout(() => {
+        content.style.visibility = 'visible';
+        content.style.opacity = '1';
+        
+        // Start the typewriter effect after power on
+        startTypewriterEffect();
+      }, 500);
+    } else {
+      // Power off
+      powerButton.classList.remove('powered-on');
+      wrapper.classList.add('screen-off');
+      wrapper.classList.remove('power-on-animation');
+      content.style.visibility = 'hidden';
+      content.style.opacity = '0';
+      
+      // Play power off sound
+      const powerOffSound = new Audio('data:audio/wav;base64,UklGRl9vT19XQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YU');
+      powerOffSound.volume = 0.2;
+      powerOffSound.play().catch(() => {});
+    }
+  });
+});
+
+// Wrap your existing typewriter effect in a function
+function startTypewriterEffect() {
+  // Your existing typewriter code here
+  document.querySelectorAll('.body-paragraph').forEach((paragraph, index) => {
+    // ... rest of your existing typewriter code ...
+  });
+}

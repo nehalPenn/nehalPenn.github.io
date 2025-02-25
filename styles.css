@@ -89,6 +89,11 @@ body {
   background: var(--bg-color);
   height: 75vh;
   overflow-y: auto;
+  transition: visibility 0s, opacity 0.3s ease-out;
+}
+
+.content * {
+  transition: all 0.3s ease-out;
 }
 
 /* Restore content overlay */
@@ -685,6 +690,13 @@ a {
     height: 40px;
     font-size: 1.2rem;
   }
+
+  .power-button {
+    top: -1px;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
 }
 
 /* Add specific landscape adjustments */
@@ -696,5 +708,151 @@ a {
   
   .content {
     max-height: 75vh;
+  }
+}
+
+/* Power message styles */
+.power-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #27c93f;
+  font-family: 'VT323', monospace;
+  font-size: 1.8rem;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  text-shadow: 0 0 10px #27c93f;
+  white-space: nowrap;
+  z-index: 1001;
+  transition: opacity 0.5s ease-in;
+}
+
+.screen-off .power-message {
+  opacity: 0;
+  visibility: visible;
+  animation: showMessage 1s ease-in forwards;
+}
+
+@keyframes showMessage {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.blink-text {
+  animation: cursor-blink 1s infinite;
+  animation-delay: 1s;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Screen off state */
+.screen-off {
+  background: #000 !important;
+  position: relative;
+}
+
+.screen-off .content,
+.screen-off .content * {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: none !important;
+}
+
+/* CRT power on animation */
+@keyframes powerOn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    filter: brightness(2);
+  }
+  25% {
+    filter: brightness(3);
+  }
+  50% {
+    opacity: 0.5;
+    filter: brightness(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.power-on-animation {
+  animation: powerOn 1s ease-in-out forwards;
+}
+
+/* Mobile adjustments for power message */
+@media (max-width: 430px) {
+  .power-message {
+    font-size: 1.2rem;
+    width: 90%;
+    white-space: normal;
+  }
+}
+
+/* Power button styles */
+.power-button {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #222;
+  border: 2px solid #444;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.5),
+    inset 0 0 5px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.power-button:hover {
+  background: #333;
+  box-shadow: 
+    0 0 15px rgba(39, 201, 63, 0.2),
+    inset 0 0 10px rgba(39, 201, 63, 0.1);
+}
+
+.power-button:active {
+  transform: translateX(-50%) scale(0.95);
+}
+
+.power-button.powered-on {
+  color: #27c93f;
+  text-shadow: 0 0 10px #27c93f;
+  box-shadow: 
+    0 0 15px rgba(39, 201, 63, 0.3),
+    inset 0 0 10px rgba(39, 201, 63, 0.2);
+}
+
+/* Update mobile styles for power button */
+@media (max-width: 430px) {
+  .power-button {
+    top: -1px;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
   }
 }
