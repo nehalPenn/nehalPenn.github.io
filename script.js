@@ -36,7 +36,7 @@ document.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Typewriter effect for paragraphs - moderate speed
+// Typewriter effect for paragraphs - with 2.5s total time limit
 document.querySelectorAll('.body-paragraph').forEach((paragraph, index) => {
   // Store the original HTML including links
   const originalHTML = paragraph.innerHTML;
@@ -58,7 +58,7 @@ document.querySelectorAll('.body-paragraph').forEach((paragraph, index) => {
   const textParts = textContent.split('|||LINK|||');
   let linkIndex = 0;
   
-  // Delay start based on paragraph index - reduced from 1000 to 600
+  // Delay start based on paragraph index - reduced to fit within 2.5s total
   setTimeout(() => {
     let partIndex = 0;
     
@@ -82,12 +82,12 @@ document.querySelectorAll('.body-paragraph').forEach((paragraph, index) => {
             partIndex++;
             typePart(); // Start typing next part
           }
-        }, 10); // Changed from 20 to 10 - moderately faster typing
+        }, 8); // Adjusted for faster typing
       }
     }
     
     typePart();
-  }, index * 600); // Changed from 1000 to 600 - moderate delay between paragraphs
+  }, index * 200); // Reduced delay between paragraphs to fit within 2.5s
 });
 
 // Add this to your script.js
