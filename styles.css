@@ -695,7 +695,7 @@ a {
   }
 
   .power-button {
-    top: -9px;
+    top: -5px;
     width: 16px;
     height: 16px;
     font-size: 0.6rem;
@@ -854,9 +854,9 @@ a {
 /* Update mobile styles for power button */
 @media (max-width: 430px) {
   .power-button {
-    top: -9px;
-    width: 16px;
-    height: 16px;
+    top: 3px;
+    width: 11px;
+    height: 11px;
     font-size: 0.6rem;
     border-width: 1px;
   }
