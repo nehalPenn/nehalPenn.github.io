@@ -654,7 +654,7 @@ a {
   }
   
   .terminal-title {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     margin-left: 0.5rem;
     white-space: nowrap;
     overflow: hidden;
@@ -695,7 +695,7 @@ a {
   }
 
   .power-button {
-    top: -1px;
+    top: -5px;
     width: 30px;
     height: 30px;
     font-size: 1rem;
@@ -853,7 +853,7 @@ a {
 /* Update mobile styles for power button */
 @media (max-width: 430px) {
   .power-button {
-    top: -1px;
+    top: -5px;
     width: 30px;
     height: 30px;
     font-size: 1rem;
