@@ -637,11 +637,23 @@ a {
 
 /* Update mobile portrait mode styles */
 @media (max-width: 430px) {
+  body {
+    padding: 0.5rem; /* Add some padding to the body */
+  }
+
   .wrapper {
-    width: 90%;
+    width: 85%; /* Reduced from 90% to give more space for the frame */
     margin: 0.5rem auto;
-    padding: 1rem;
+    padding: 0.75rem; /* Slightly reduced padding */
     max-height: 80vh;
+    box-shadow: /* Reduce the frame thickness for mobile */
+      inset 0 0 30px rgba(255, 255, 255, 0.1),
+      0 0 10px rgba(0, 0, 0, 0.5),
+      0 0 0 8px #3a3a3a,
+      0 0 0 9px #2a2a2a,
+      0 0 0 10px #1a1a1a,
+      0 0 0 15px #111111,
+      0 15px 30px rgba(0, 0, 0, 0.8);
   }
   
   .content {
@@ -854,9 +866,9 @@ a {
 /* Update mobile styles for power button */
 @media (max-width: 430px) {
   .power-button {
-    top: 2px;
-    width: 12px;
-    height: 12px;
+    top: 1px;
+    width: 10px;
+    height: 10px;
     font-size: 0.5rem;
     border-width: 0.5px;
   }
