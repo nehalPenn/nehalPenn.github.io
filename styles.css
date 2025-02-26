@@ -30,7 +30,7 @@
 
 body {
   margin: 0;
-  padding: 1rem;
+  padding: 0.0rem;
   font-family: 'VT323', monospace;
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -46,17 +46,17 @@ body {
 
 /* Wrapper Styles */
 .wrapper {
-  max-width: 1000px;
-  width: 90%;
-  margin: 1.5rem auto;
-  padding: 2.5rem;
+  max-width: 900px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 2rem;
   position: relative;
   border-radius: 15px;
-  background: #111111; /* Lighter than pure black */
+  background: #111111;
   box-shadow: 
     inset 0 0 30px rgba(255, 255, 255, 0.1),
     0 0 10px rgba(0, 0, 0, 0.5),
-    0 0 0 12px #3a3a3a, /* Lighter borders */
+    0 0 0 12px #3a3a3a,
     0 0 0 13px #2a2a2a,
     0 0 0 14px #1a1a1a,
     0 0 0 25px #111111,
@@ -85,9 +85,9 @@ body {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 1.25rem;
   background: var(--bg-color);
-  height: 75vh;
+  height: 70vh;
   overflow-y: auto;
   transition: visibility 0s, opacity 0.3s ease-out;
 }
@@ -130,7 +130,7 @@ body {
 
 /* Add scanline effect to header section */
 .header-section {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   position: relative;
 }
 
@@ -165,8 +165,8 @@ body {
 
 /* Paragraph Styles */
 .body-paragraph {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
   line-height: 1.5;
   opacity: 1;
   animation: none;
@@ -227,9 +227,9 @@ a {
 
 /* Replace the social links styles with keyboard styles */
 .keyboard-social {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   justify-content: center;
 }
 
@@ -695,9 +695,9 @@ a {
   }
 
   .power-button {
-    top: -5px;
-    width: 16px;
-    height: 16px;
+    top: -4px;
+    width: 15px;
+    height: 15px;
     font-size: 0.6rem;
     border-width: 1px;
   }
@@ -811,11 +811,11 @@ a {
 /* Power button styles */
 .power-button {
   position: absolute;
-  top: 4px;
+  top: 3px;
   left: 50%;
   transform: translateX(-50%);
-  width: 28px;
-  height: 28px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   background: #222;
   border: 2px solid #444;
@@ -854,10 +854,10 @@ a {
 /* Update mobile styles for power button */
 @media (max-width: 430px) {
   .power-button {
-    top: 3px;
-    width: 11px;
-    height: 11px;
-    font-size: 0.6rem;
-    border-width: 1px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
+    font-size: 0.5rem;
+    border-width: 0.5px;
   }
 }
